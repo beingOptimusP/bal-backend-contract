@@ -26,7 +26,7 @@ tx = {
   "gas": 200000,
   "from": addy,
   "to": contract_addy,
-  "data": contract.encodeABI(fn_name="add", args=[103,105]),
+  "data": contract.encodeABI(fn_name="add", args=["KA375",105]),
 }
 
 signPromise = w3.eth.account.sign_transaction(tx, privateKey);
