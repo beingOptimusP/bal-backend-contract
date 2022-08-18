@@ -1,0 +1,23 @@
+{
+  "name": "test-js",
+  "version": "1.0.0",
+  "description": "Iot based smart overload detector with decentralized database",
+  "main": "event.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beingOptimusP/bal-backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beingOptimusP/bal-backend/issues"
+  },
+  "homepage": "https://github.com/beingOptimusP/bal-backend#readme",
+  "dependencies": {
+    "web3": "^1.7.5"
+  }
+}

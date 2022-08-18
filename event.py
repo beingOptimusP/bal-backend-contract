@@ -22,54 +22,11 @@ w3 = Web3(Web3.HTTPProvider('https://eth-goerli.g.alchemy.com/v2/3Cfhb0ZB3R-Lr_9
 print(w3.isConnected())
 contract=w3.eth.contract(address=contract_addy, abi=abi)
 
-w3.eth.set_gas_price_strategy(rpc_gas_price_strategy)
-
-def randStr():
-  ran = ''.join(random.choices(string.ascii_uppercase + string.digits, k = 5))
-  return str(ran)
-
-
-i = 0;
-while i < 10:
-  print(w3.eth.get_balance(addy))
-  tx = {
-  "nonce": w3.eth.get_transaction_count(addy),
-  "gasPrice": w3.eth.generate_gas_price(),
-  "gas": 200000,
-  "from": addy,
-  "to": contract_addy,
-  "data": contract.encodeABI(fn_name="add", args=[randStr(),random.randint(0,1000)]),
-  }
-
-  signPromise = w3.eth.account.sign_transaction(tx, privateKey);
-  tx_hash = w3.eth.send_raw_transaction(signPromise.rawTransaction)
-  tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-  print(tx_receipt)
-
-
-  tx = {
-    "nonce": w3.eth.get_transaction_count(addy),
-    "gasPrice": w3.eth.generate_gas_price(),
-    "gas": 200000,
-    "from": addy,
-    "to": contract_addy,
-    "data": contract.encodeABI(fn_name="del", args=[randStr()]),
-    }
-
-  signPromise = w3.eth.account.sign_transaction(tx, privateKey);
-  tx_hash = w3.eth.send_raw_transaction(signPromise.rawTransaction)
-  tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-  print(tx_receipt)
-
-  tx = {
-    "nonce": w3.eth.get_transaction_count(addy),
-    "gasPrice": w3.eth.generate_gas_price(),
-    "gas": 200000,
-    "from": addy,
-    "to": contract_addy,
-    "data": contract.encodeABI(fn_name="update", args=[randStr(),random.randint(0,1000)]),
-    }
-
-  print(tx_hash)
-  i+=1
-
+contract.getPastEvents(
+    "logs",
+    {
+    fromBlock: 0,
+    toBlock: "latest",
+    },
+    console.log(events[0].weight)
+)

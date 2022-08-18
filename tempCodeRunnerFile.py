@@ -1,13 +1,1 @@
-tx = {
-#   "nonce": w3.eth.get_transaction_count(addy),
-#   "gasPrice": w3.eth.generate_gas_price(),
-#   "gas": 200000,
-#   "from": addy,
-#   "to": contract_addy,
-#   "data": contract.encodeABI(fn_name="del", args=["KA375"]),
-# }
-
-# signPromise = w3.eth.account.sign_transaction(tx, privateKey);
-# tx_hash = w3.eth.send_raw_transaction(signPromise.rawTransaction)
-# tx_receipt = w3.eth.wait_for_transaction_receipt(tx_hash)
-# print(tx_receipt)
+[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"string","name":"truckId","type":"string"},{"indexed":false,"internalType":"uint256","name":"timeOut","type":"uint256"},{"indexed":true,"internalType":"uint256","name":"weight","type":"uint256"}],"name":"logs","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"string","name":"truckId","type":"string"},{"indexed":false,"internalType":"uint256","name":"weight","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"time","type":"uint256"}],"name":"scam","type":"event"},{"inputs":[{"internalType":"string","name":"_truckId","type":"string"},{"internalType":"uint256","name":"_weight","type":"uint256"}],"name":"add","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"","type":"string"}],"name":"data","outputs":[{"internalType":"uint256","name":"timeOut","type":"uint256"},{"internalType":"uint256","name":"weight","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"_truckId","type":"string"}],"name":"del","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"_truckId","type":"string"},{"internalType":"uint256","name":"_weight","type":"uint256"}],"name":"update","outputs":[],"stateMutability":"nonpayable","type":"function"}]
