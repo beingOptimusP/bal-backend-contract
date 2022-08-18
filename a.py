@@ -11,7 +11,7 @@ abi = abi.abi
 
 privateKey = "0d845b90a56f9e4709ba682e87be6a58417b27108c14ddeb7ab8c42251803559"
 
-contract_addy = "0xb434C94BfEa3cBB682325dCDa927662fB9189A68"
+contract_addy = "0x771500444863dB465bb5AFAA95e1654Ae15f6Acf"
 
 addy = "0xBaFa7Da92715a1b06397bF26E6e335599769b412"
 
@@ -31,6 +31,7 @@ def randStr():
 
 i = 0;
 while i < 10:
+  truck = randStr()
   print(w3.eth.get_balance(addy))
   tx = {
   "nonce": w3.eth.get_transaction_count(addy),
@@ -38,7 +39,7 @@ while i < 10:
   "gas": 200000,
   "from": addy,
   "to": contract_addy,
-  "data": contract.encodeABI(fn_name="add", args=[randStr(),random.randint(0,1000)]),
+  "data": contract.encodeABI(fn_name="add", args=[truck,random.randint(0,1000)]),
   }
 
   signPromise = w3.eth.account.sign_transaction(tx, privateKey);
@@ -53,7 +54,7 @@ while i < 10:
     "gas": 200000,
     "from": addy,
     "to": contract_addy,
-    "data": contract.encodeABI(fn_name="del", args=[randStr()]),
+    "data": contract.encodeABI(fn_name="del", args=[truck]),
     }
 
   signPromise = w3.eth.account.sign_transaction(tx, privateKey);
@@ -67,7 +68,7 @@ while i < 10:
     "gas": 200000,
     "from": addy,
     "to": contract_addy,
-    "data": contract.encodeABI(fn_name="update", args=[randStr(),random.randint(0,1000)]),
+    "data": contract.encodeABI(fn_name="update", args=[truck,random.randint(0,1000)]),
     }
 
   print(tx_hash)

@@ -17,9 +17,9 @@ contract Bal is Ownable{
     //banning the scam trucks;
     mapping(string => bool) public legit;
 
-    event logs(string indexed truckId ,uint timeOut ,uint indexed weight);
+    event logs(string truckId ,uint timeOut ,uint indexed weight);
 
-    event scam(string indexed truckId, uint weight, uint time);
+    event scam(string truckId, uint indexed weight, uint time);
 
     function add(string memory _truckId, uint _weight) onlyOwner public{
         require(!legit[_truckId]);
